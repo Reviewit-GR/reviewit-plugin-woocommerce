@@ -1,0 +1,11 @@
+# What the WordPress.org deploy leaves out (the plugin directory gets only what the plugin needs).
+.git
+.github
+.gitattributes
+.gitignore
+.distignore
+.wordpress-org
+bin
+tests
+dist
+README.md

@@ -1,0 +1,50 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Reviewit Review Invitations for WooCommerce 0.1.0\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+msgid "That does not look like a Reviewit key. It starts with rvk_."
+msgstr "Αυτό δεν μοιάζει με κλειδί του Reviewit. Ξεκινά με rvk_."
+
+msgid "Reviewit review invitations"
+msgstr "Προσκλήσεις κριτικής Reviewit"
+
+msgid "No key yet: no invitations are sent."
+msgstr "Δεν υπάρχει ακόμα κλειδί: δεν στέλνεται καμία πρόσκληση."
+
+msgid "This is a test key: nothing is emailed. Use your live key when you are ready."
+msgstr "Αυτό είναι κλειδί δοκιμής: δεν στέλνεται κανένα email. Βάλτε το κανονικό κλειδί όταν είστε έτοιμοι."
+
+msgid "Reviewit key"
+msgstr "Κλειδί Reviewit"
+
+msgid "Create it in your business page on Reviewit, under «Σύνδεση καταστήματος»."
+msgstr "Δημιουργήστε το στη σελίδα της επιχείρησής σας στο Reviewit, στο «Σύνδεση καταστήματος»."
+
+msgid "Help"
+msgstr "Βοήθεια"
+
+msgid "When an order is completed, only the customer's email address and first name and the order number are sent. Reviewit erases the address as soon as its email is sent."
+msgstr "Όταν μια παραγγελία ολοκληρώνεται, στέλνονται μόνο η διεύθυνση email και το μικρό όνομα του πελάτη και ο αριθμός παραγγελίας. Το Reviewit διαγράφει τη διεύθυνση μόλις σταλεί το email του."
+
+msgid "Reviewit: the review invitation was queued."
+msgstr "Reviewit: η πρόσκληση κριτικής μπήκε στην ουρά."
+
+msgid "Reviewit: test key, nothing was sent."
+msgstr "Reviewit: κλειδί δοκιμής, δεν στάλθηκε τίποτα."
+
+msgid "Reviewit: no invitation will be sent%s."
+msgstr "Reviewit: δεν θα σταλεί πρόσκληση%s."
+
+msgid "Reviewit could not be reached: the invitation was not sent."
+msgstr "Δεν ήταν δυνατή η επικοινωνία με το Reviewit: η πρόσκληση δεν στάλθηκε."
+
+msgid "Reviewit: the invitation was refused (%1$d %2$s)."
+msgstr "Reviewit: η πρόσκληση απορρίφθηκε (%1$d %2$s)."

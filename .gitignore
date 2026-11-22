@@ -1,0 +1,6 @@
+.idea/
+.vscode/
+vendor/
+*.zip
+dist/
+.DS_Store

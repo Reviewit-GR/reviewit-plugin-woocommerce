@@ -1,0 +1,30 @@
+name: Checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['7.4', '8.3']
+    steps:
+      - uses: actions/checkout@v7
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+      - run: for f in reviewit-invitations.php uninstall.php includes/*.php; do php -l "$f"; done
+      - run: php tests/run.php
+      - run: python3 bin/compile-mo.py && git diff --exit-code languages
+      - run: bin/build-zip.sh
+      - name: The zip, unpacked, for Plugin Check
+        run: mkdir -p build && unzip -q dist/*.zip -d build
+        if: matrix.php == '8.3'
+      - uses: WordPress/plugin-check-action@v1.1.9
+        if: matrix.php == '8.3'
+        with:
+          build-dir: build/reviewit-invitations
+          ignore-warnings: true

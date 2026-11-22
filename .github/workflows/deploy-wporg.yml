@@ -1,0 +1,25 @@
+# Publishes a release to the WordPress.org plugin directory when a version tag is pushed: git tag v0.1.0 && git push --tags
+# Needs the repository secrets SVN_USERNAME and SVN_PASSWORD (the WordPress.org account that owns the plugin), and that the plugin is
+# already approved there. Until then, release.yml's zip is the way to install.
+name: Deploy to WordPress.org
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: wordpress-org
+    steps:
+      - uses: actions/checkout@v7
+      - name: The tag must be the plugin's version
+        run: |
+          v=$(sed -n 's/^ \* Version: *//p' reviewit-invitations.php)
+          [ "v$v" = "${GITHUB_REF_NAME}" ] || { echo "tag ${GITHUB_REF_NAME} is not version $v" >&2; exit 1; }
+      - uses: 10up/action-wordpress-plugin-deploy@2.3.0
+        env:
+          SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
+          SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
+          SLUG: reviewit-invitations
+          ASSETS_DIR: .wordpress-org
