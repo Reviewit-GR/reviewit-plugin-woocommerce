@@ -92,10 +92,11 @@ class Client {
 			$outcome = ! empty( $body['test'] ) ? self::TEST : self::QUEUED;
 		} elseif ( 200 === $status ) {
 			$outcome = ! empty( $body['test'] ) ? self::TEST : self::SKIPPED;
-		} elseif ( $status >= 500 || 0 === $status ) {
+		} elseif ( $status >= 500 || 0 === $status || ( 429 === $status && 'monthly_limit' !== $detail ) ) {
+			// Unavailable, or too many calls at once (rate_limited, or the gateway's or Cloudflare's own 429): try again later.
 			$outcome = self::RETRY;
 		} else {
-			// 401 wrong key, 403 invitations off or no plan, 422 bad data, 429 the month's limit: repeating will not help.
+			// 401 wrong key, 403 invitations off or no plan, 422 bad data, 429 monthly_limit (the month's allowance): repeating will not help.
 			$outcome = self::FAILED;
 		}
 

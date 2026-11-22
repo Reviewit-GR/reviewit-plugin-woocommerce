@@ -44,6 +44,8 @@ check( '200 skipped, reviewed', Client::interpret( 200, array( 'state' => 'skipp
 check( '401 is final', Client::interpret( 401, array() )['outcome'], 'failed' );
 check( '403 invitations_disabled', Client::interpret( 403, array( 'error' => 'invitations_disabled' ) ), array( 'outcome' => 'failed', 'status' => 403, 'detail' => 'invitations_disabled' ) );
 check( '429 monthly_limit is final', Client::interpret( 429, array( 'error' => 'monthly_limit' ) )['outcome'], 'failed' );
+check( '429 rate_limited is tried again', Client::interpret( 429, array( 'error' => 'rate_limited' ) )['outcome'], 'retry' );
+check( '429 without a body (the gateway) is tried again', Client::interpret( 429, array() )['outcome'], 'retry' );
 check( '422 names the field', Client::interpret( 422, array( 'error' => 'validation_failed', 'field' => 'email' ) )['detail'], 'validation_failed:email' );
 check( '500 is tried again', Client::interpret( 500, array( 'error' => 'internal_error' ) )['outcome'], 'retry' );
 check( '503 is tried again', Client::interpret( 503, array() )['outcome'], 'retry' );

@@ -51,7 +51,7 @@ For every completed order, unless Reviewit skips it (the customer unsubscribed, 
 
 = Why was an order "refused"? =
 
-The order note says why. `invitations_disabled`: switch invitations on in your Reviewit business page. `plan_required`: the page needs a plan. `monthly_limit`: your plan's monthly allowance is used. `unauthorized`: the key is wrong or was revoked.
+The order note says why. `invitations_disabled`: switch invitations on in your Reviewit business page. `plan_required`: the page needs a plan. `monthly_limit`: your plan's monthly allowance is used. `rate_limited` (or any other 429): too many requests at once, so the plugin tries again later. `unauthorized`: the key is wrong or was revoked.
 
 == Changelog ==
 
